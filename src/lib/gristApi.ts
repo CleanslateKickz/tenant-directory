@@ -1,6 +1,6 @@
 import { Tenant } from '@/pages/Index';
 
-const GRIST_API_URL = import.meta.env.VITE_GRIST_API_URL || 'https://docs.getgrist.com/api/docs/8VJ8y5ig393qLhax6oUjRN';
+const GRIST_API_URL = import.meta.env.VITE_GRIST_API_URL || '/api';
 const GRIST_API_KEY = import.meta.env.VITE_GRIST_API_KEY || '1ad7e6e5369fbff5d6addbe79a19d3b65455a96e';
 const TABLE_NAME = 'Datablist';
 
