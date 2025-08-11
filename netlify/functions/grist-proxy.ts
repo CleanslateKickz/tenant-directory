@@ -17,15 +17,20 @@ const handler: Handler = async (event) => {
   }
 
   try {
-    const response = await fetch(targetUrl, {
-      method: event.httpMethod,
+    const method = event.httpMethod.toUpperCase();
+    const options: RequestInit = {
+      method: method,
       headers: {
         'Authorization': `Bearer ${GRIST_API_KEY}`,
         'Content-Type': 'application/json',
       },
-      body: event.body,
-    });
+    };
 
+    if (method !== 'GET' && method !== 'HEAD' && event.body) {
+      options.body = event.body;
+    }
+
+    const response = await fetch(targetUrl, options);
     const data = await response.json();
 
     return {
